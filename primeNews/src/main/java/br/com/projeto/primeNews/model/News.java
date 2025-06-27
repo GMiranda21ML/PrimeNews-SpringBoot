@@ -34,6 +34,8 @@ public class News {
         this.conteudo = articleDados.conteudo().substring(0, 101).trim() + "..."; // por enquanto so para testes
     }
 
+    public News() {}
+
     public Long getId() {
         return this.id;
     }
