@@ -2,6 +2,7 @@ package br.com.projeto.primeNews.main;
 
 import br.com.projeto.primeNews.model.ArticleDados;
 import br.com.projeto.primeNews.model.News;
+import br.com.projeto.primeNews.repository.NewsRepository;
 import br.com.projeto.primeNews.service.ConsumoAPI;
 import br.com.projeto.primeNews.service.ConverteDados;
 
@@ -13,6 +14,11 @@ public class Main {
     private final String APIKEY = System.getenv("NEWS_APIKEY");
     private ConsumoAPI consumoAPI = new ConsumoAPI();
     private ConverteDados converteDados = new ConverteDados();
+    private NewsRepository newsRepository;
+
+    public Main(NewsRepository newsRepository) {
+        this.newsRepository = newsRepository;
+    }
 
     public void startProject() {
         String json = consumoAPI.consumirAPI(ENDERECO + "/everything?language=pt&q=notícia&apiKey=" + APIKEY);
@@ -26,6 +32,12 @@ public class Main {
                 .map(News::new)
                 .collect(Collectors.toList());
 
-        noticias.forEach(System.out::println);
+        for (News news : noticias) {
+            if (!newsRepository.existsByTitulo(news.getTitulo())) {
+                newsRepository.save(news);
+            }
+        }
+
+
     }
 }

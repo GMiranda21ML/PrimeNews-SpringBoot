@@ -12,12 +12,16 @@ public class News {
     private Long id;
     private String nome; // é o nome do portal
     private String autor;
+    @Column(unique = true)
     private String titulo;
+    @Column(length = 1000)
     private String descricao;
     private String url;
+    @Column(length = 1000)
     private String urlImagem;
     private LocalDate dataPublicacao;
-    private String conteudo;
+//    @Lob
+    private String conteudo; // se for usar o conteudo todo, colocar o Lob e atualizar o construtor
 
     public News(ArticleDados articleDados) {
         this.nome = articleDados.sourceDados().nome();
@@ -27,7 +31,7 @@ public class News {
         this.url = articleDados.url();
         this.urlImagem = articleDados.urlImagem();
         this.dataPublicacao = LocalDate.parse(articleDados.dataPublicacao().substring(0, 10));
-        this.conteudo = articleDados.conteudo();
+        this.conteudo = articleDados.conteudo().substring(0, 101).trim() + "..."; // por enquanto so para testes
     }
 
     public Long getId() {
