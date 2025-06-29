@@ -20,10 +20,12 @@ public class News {
     @Column(length = 1000)
     private String urlImagem;
     private LocalDate dataPublicacao;
+    @Enumerated(EnumType.STRING)
+    private Categoria categoria;
 //    @Lob
     private String conteudo; // se for usar o conteudo todo, colocar o Lob e atualizar o construtor
 
-    public News(ArticleDados articleDados) {
+    public News(ArticleDados articleDados, Categoria categoria) {
         this.nome = articleDados.sourceDados().nome();
         this.autor = articleDados.autor();
         this.titulo = articleDados.titulo();
@@ -32,6 +34,7 @@ public class News {
         this.urlImagem = articleDados.urlImagem();
         this.dataPublicacao = LocalDate.parse(articleDados.dataPublicacao().substring(0, 10));
         this.conteudo = articleDados.conteudo().substring(0, 101).trim() + "..."; // por enquanto so para testes
+        this.categoria = categoria;
     }
 
     public News() {}

@@ -1,6 +1,7 @@
 package br.com.projeto.primeNews.main;
 
 import br.com.projeto.primeNews.model.ArticleDados;
+import br.com.projeto.primeNews.model.Categoria;
 import br.com.projeto.primeNews.model.News;
 import br.com.projeto.primeNews.repository.NewsRepository;
 import br.com.projeto.primeNews.service.ConsumoAPI;
@@ -29,7 +30,7 @@ public class Main {
         List<ArticleDados> articleDados = converteDados.obterDadosLista(json, ArticleDados.class);
 
         List<News> noticias = articleDados.stream()
-                .map(News::new)
+                .map(n -> new News(n, Categoria.TUDO))
                 .collect(Collectors.toList());
 
         for (News news : noticias) {
