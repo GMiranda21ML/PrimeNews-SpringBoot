@@ -5,6 +5,5 @@ public enum Categoria {
     POLITICA,
     ECONOMIA,
     ESPORTES,
-    ENTRETERIMENTO,
     TECNOLOGIA;
 }

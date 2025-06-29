@@ -25,6 +25,8 @@ public class Main {
         String json = consumoAPI.consumirAPI(ENDERECO + "/everything?language=pt&q=notícia&apiKey=" + APIKEY);
 //        System.out.println(json);
 
+        // https://newsapi.org/v2/everything?language=pt&q=economia&apiKey=c4281eb0f9c34b31aac2f259daa81627 categoria economia
+
         json = converteDados.extrairArticles(json);
 
         List<ArticleDados> articleDados = converteDados.obterDadosLista(json, ArticleDados.class);
