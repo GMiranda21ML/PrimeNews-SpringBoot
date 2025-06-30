@@ -42,4 +42,8 @@ public class NewsService {
             return null;
         }
     }
+
+    public List<NewsDTO> aleatorias() {
+        return listarNoticias(newsRepository.buscar5AleatoriasDosUltimos2Meses());
+    }
 }

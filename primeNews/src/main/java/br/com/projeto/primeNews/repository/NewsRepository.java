@@ -16,6 +16,15 @@ public interface NewsRepository extends JpaRepository<News, Long> {
     @Query("Select n FROM News n WHERE n.categoria = :categoria ORDER BY dataPublicacao DESC")
     List<News> noticiasDePolitica(Categoria categoria);
 
+    @Query(
+            value = "SELECT * FROM news " +
+                    "WHERE titulo IS NOT NULL AND data_publicacao >= CURRENT_DATE - INTERVAL '2 months' " +
+                    "ORDER BY RANDOM() LIMIT 5",
+            nativeQuery = true
+    )
+    List<News> buscar5AleatoriasDosUltimos2Meses();
+
+
 
 
 }

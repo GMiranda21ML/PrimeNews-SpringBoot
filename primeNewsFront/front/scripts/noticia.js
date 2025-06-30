@@ -103,7 +103,7 @@ async function carregarNoticia() {
 
 async function carregarNoticiasRelacionadas(noticiaAtualId) {
     try {
-        const response = await fetch('http://localhost:8080/noticias');
+        const response = await fetch('http://localhost:8080/noticias/aleatorias');
         
         if (!response.ok) {
             throw new Error('Erro ao buscar notícias relacionadas');

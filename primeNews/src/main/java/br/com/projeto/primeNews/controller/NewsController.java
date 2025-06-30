@@ -31,4 +31,9 @@ public class NewsController {
     public NewsEspecificaDTO exibeNoticia(@PathVariable Long id) {
         return newsService.obterDadoNoticia(id);
     }
+
+    @GetMapping("/aleatorias")
+    public List<NewsDTO> NewsAleatorias() {
+        return newsService.aleatorias();
+    }
 }
