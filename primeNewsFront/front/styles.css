@@ -143,15 +143,36 @@ nav a:hover {
 .sidebar li {
     padding: 1rem 0;
     border-bottom: 1px solid #eee;
+    transition: all 0.3s ease;
+    border-radius: 8px;
+    margin-bottom: 0.5rem;
 }
 
 .sidebar li:last-child {
     border-bottom: none;
+    margin-bottom: 0;
+}
+
+.sidebar li:hover {
+    background-color: #f8f9fa;
+    padding-left: 0.5rem;
+    transform: translateX(5px);
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
 }
 
 .sidebar h4 {
     color: #2c3e50;
     margin-bottom: 0.5rem;
+    font-size: 1rem;
+    font-weight: 600;
+    line-height: 1.3;
+}
+
+.sidebar p {
+    color: #666;
+    font-size: 0.9rem;
+    line-height: 1.4;
+    margin: 0;
 }
 
 footer {

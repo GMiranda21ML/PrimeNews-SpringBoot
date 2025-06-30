@@ -24,7 +24,7 @@ public class NewsService {
     }
 
     public List<NewsDTO> obterDadosHome() {
-        return listarNoticias(newsRepository.top5NoticiasTudo(Categoria.TUDO));
+        return listarNoticias(newsRepository.top5Noticias(Categoria.TUDO));
     }
 
     public List<NewsDTO> obterDadosPolitica() {
@@ -45,5 +45,9 @@ public class NewsService {
 
     public List<NewsDTO> aleatorias() {
         return listarNoticias(newsRepository.buscar5AleatoriasDosUltimos2Meses());
+    }
+
+    public List<NewsDTO> ultimasNoticias() {
+        return listarNoticias(newsRepository.ultimasNoticias(Categoria.TUDO));
     }
 }

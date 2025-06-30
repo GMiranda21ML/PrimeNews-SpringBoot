@@ -36,4 +36,9 @@ public class NewsController {
     public List<NewsDTO> NewsAleatorias() {
         return newsService.aleatorias();
     }
+
+    @GetMapping("/ultimasNoticias")
+    public List<NewsDTO> ultimasNoticias() {
+        return newsService.ultimasNoticias();
+    }
 }

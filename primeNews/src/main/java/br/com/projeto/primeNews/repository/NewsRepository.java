@@ -11,7 +11,7 @@ public interface NewsRepository extends JpaRepository<News, Long> {
     boolean existsByTitulo(String titulo);
 
     @Query("SELECT n FROM News n WHERE n.categoria = :categoria ORDER BY dataPublicacao DESC LIMIT 5")
-    List<News> top5NoticiasTudo(Categoria categoria);
+    List<News> top5Noticias(Categoria categoria);
 
     @Query("Select n FROM News n WHERE n.categoria = :categoria ORDER BY dataPublicacao DESC")
     List<News> noticiasDePolitica(Categoria categoria);
@@ -23,6 +23,9 @@ public interface NewsRepository extends JpaRepository<News, Long> {
             nativeQuery = true
     )
     List<News> buscar5AleatoriasDosUltimos2Meses();
+
+    @Query("SELECT n FROM News n WHERE n.categoria = :categoria ORDER BY dataPublicacao DESC LIMIT 8 OFFSET 5")
+    List<News> ultimasNoticias(Categoria categoria);
 
 
 
