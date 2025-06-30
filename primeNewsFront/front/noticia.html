@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Notícia - Prime News</title>
+        <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="noticia.css">
+    </head>
+    <body>
+        <header>
+            <div class="header-content">
+                <a href="index.html" class="logo-link">
+                    <h1>Prime News</h1>
+                </a>
+                <nav>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="politica.html">Política</a></li>
+                        <li><a href="#">Economia</a></li>
+                        <li><a href="#">Esportes</a></li>
+                        <li><a href="#">Tecnologia</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </header>
+
+        <main class="noticia-container">
+            <article class="noticia-content">
+                <div class="noticia-header">
+                    <div class="breadcrumb">
+                        <a href="index.html">Home</a> > <span id="categoria">Notícia</span>
+                    </div>
+                    <h1 id="titulo-noticia">Carregando...</h1>
+                    <div class="noticia-meta">
+                        <span class="data" id="data-noticia">Data não disponível</span>
+                        <span class="autor" id="autor-noticia">Autor não disponível</span>
+                    </div>
+                </div>
+
+                <div class="noticia-imagem">
+                    <img id="imagem-noticia" src="https://via.placeholder.com/800x400" alt="Imagem da notícia">
+                </div>
+
+                <div class="noticia-texto">
+                    <p id="descricao-noticia">Carregando conteúdo...</p>
+                </div>
+
+                <div class="noticia-acoes">
+                    <button class="btn-voltar" onclick="window.history.back()">
+                        <span>←</span> Voltar
+                    </button>
+                    <a href="#" id="link-saber-mais" class="btn-saber-mais" target="_blank" rel="noopener noreferrer">
+                        <span>📰</span> Saber mais...
+                    </a>
+                </div>
+            </article>
+
+            <aside class="noticias-relacionadas">
+                <h3>Notícias Relacionadas</h3>
+                <div id="noticias-relacionadas-container">
+                </div>
+            </aside>
+        </main>
+
+        <footer>
+            <p>&copy; 2024 Portal de Notícias. Todos os direitos reservados.</p>
+        </footer>
+
+        <script src="./scripts/noticia.js" type="module"></script>
+    </body>
+</html> 

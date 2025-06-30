@@ -1,6 +1,7 @@
 package br.com.projeto.primeNews.dto;
 
-public record NewsDTO(String titulo,
+public record NewsDTO(Long id,
+                      String titulo,
                       String descricao,
                       String urlImagem) {
 }
